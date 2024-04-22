@@ -8,12 +8,21 @@ const Main = styled.main`
   height: 1134px;
 `;
 
+const MainBannerContainer = styled.div``;
+
+const Section = styled.div``;
+
+const SectionTitle = styled.div``;
+
+
 const MainPage: React.FC = () => {
 
   return (
     <div>
       <Header/>
       <Main>
+        <MainBannerContainer>
+        </MainBannerContainer>
 
       </Main>
       <Footer/>

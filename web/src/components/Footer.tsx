@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "@emotion/styled"
+import {B1_600, B2_400} from "../style/Style";
 
 const Base = styled.footer`
   display: block;
@@ -19,10 +20,10 @@ const Container = styled.section`
   padding: 16px 40px;
 `;
 
-const FooterTitle = styled.div`
+const FooterTitle = styled(B1_600)`
 `;
 
-const FooterText = styled.div`
+const FooterText = styled(B2_400)`
 `;
 
 const FooterIcon = styled.div`

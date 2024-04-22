@@ -1,12 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import styled from "@emotion/styled"
 import {AiOutlineMenu, AiOutlineClose, AiOutlineSearch} from 'react-icons/ai';
+import {B1_600} from "../style/Style";
 
 const Base = styled.header`
   background: #ffffff;
   text-align: center;
   width: 100%;
-  height: 60px;
+  height: 3.75rem;
 `;
 
 const Navigation = styled.nav`
@@ -14,7 +15,7 @@ const Navigation = styled.nav`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  max-width: 1136px;
+  max-width: 71rem;
 `;
 
 const Logo = styled.img`
@@ -74,13 +75,17 @@ const MainHeader = () => {
         <MenuList>
           <Menu>
             <HomeLink href="/">
-              홈
+              <B1_600>
+                홈
+              </B1_600>
             </HomeLink>
           </Menu>
           <Menu>
             <Link>
               <MenuButton onClick={handleSubscribeClick}>
-                구독
+                <B1_600>
+                  구독
+                </B1_600>
               </MenuButton>
             </Link>
           </Menu>
