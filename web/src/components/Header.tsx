@@ -81,10 +81,17 @@ const MainHeader = () => {
             </HomeLink>
           </Menu>
           <Menu>
+            <HomeLink href="/book">
+              <B1_600>
+                도서
+              </B1_600>
+            </HomeLink>
+          </Menu>
+          <Menu>
             <Link>
               <MenuButton onClick={handleSubscribeClick}>
                 <B1_600>
-                  구독
+                  무료상담
                 </B1_600>
               </MenuButton>
             </Link>

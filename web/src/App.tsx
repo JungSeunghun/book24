@@ -3,6 +3,7 @@ import {Helmet, HelmetProvider} from "react-helmet-async";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./utils/ScrollToTop";
 import MainPage from "./pages/Main";
+import BookPage from "./pages/Book";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <ScrollToTop/>
         <Routes>
           <Route path="/" element={<MainPage/>}/>
+        </Routes>
+        <Routes>
+          <Route path="/book" element={<BookPage/>}/>
         </Routes>
       </Router>
     </HelmetProvider>
