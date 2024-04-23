@@ -84,6 +84,7 @@ export const B5 = styled.div`
 `;
 
 export const CH1 = styled.div`
+  font-family: 'Noto Sans KR';
   font-size: 2.5rem;
   line-height: 3.5rem;
   letter-spacing: -0.022rem;
@@ -91,6 +92,7 @@ export const CH1 = styled.div`
 `;
 
 export const CH2 = styled.div`
+  font-family: 'Noto Sans KR';
   font-size: 2.5rem;
   line-height: 3.5rem;
   letter-spacing: -0.022rem;
@@ -98,6 +100,7 @@ export const CH2 = styled.div`
 `;
 
 export const CH3 = styled.div`
+  font-family: 'Noto Sans KR';
   font-size: 1.5rem;
   line-height: 2rem;
   letter-spacing: -0.02rem;
@@ -105,6 +108,7 @@ export const CH3 = styled.div`
 `;
 
 export const CH4 = styled.div`
+  font-family: 'Noto Sans KR';
   font-size: 1.25rem;
   line-height: 2rem;
   letter-spacing: -0.015rem;
@@ -112,18 +116,49 @@ export const CH4 = styled.div`
 `;
 
 export const CH5 = styled.div`
+  font-family: 'Noto Sans KR';
   font-size: 1rem;
   line-height: 1.5rem;
   letter-spacing: -0.01rem;
   margin: 0;
 `;
 
-export const CB1 = styled.div``;
+export const CB1 = styled.div`
+  font-family: 'Noto Sans KR';
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  letter-spacing: -0.015rem;
+  margin: 0;
+`;
 
-export const CB2 = styled.div``;
+export const CB2 = styled.div`
+  font-family: 'Noto Sans KR';
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: -0.01rem;
+  margin: 0;
+`;
 
-export const CB3 = styled.div``;
+export const CB3 = styled.div`
+  font-family: 'Noto Sans KR';
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  letter-spacing: -0.005rem;
+  margin: 0;
+`;
 
-export const CB4 = styled.div``;
+export const CB4 = styled.div`
+  font-family: 'Noto Sans KR';
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: -0.005rem;
+  margin: 0;
+`;
 
-export const CB5 = styled.div``;
+export const CB5 = styled.div`
+  font-family: 'Noto Sans KR';
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  letter-spacing: -0.005rem;
+  margin: 0;
+`;
