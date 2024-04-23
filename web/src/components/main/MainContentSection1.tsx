@@ -1,15 +1,24 @@
 import React from 'react';
 import styled from "styled-components";
+import {CH2, CH5} from "../../style/Style";
 
 
-const MainContentContainer = styled.div``;
-
-const MainContentTitle = styled.div`
+const MainContentContainer = styled.div`
+  width: 100%;
+  text-align: center;
 `;
 
-const MainContentSubTitle = styled.div``;
+const MainContentTitle = styled(CH5)``;
 
-const MainContent = styled.div``;
+const MainContentSubTitle = styled(CH2)``;
+
+const MainContent = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 2.25rem;
+`;
+
+const MainContentImg = styled.img``;
 
 const MainContentSection1: React.FC = () => {
 
@@ -18,6 +27,9 @@ const MainContentSection1: React.FC = () => {
       <MainContentTitle>기업 도서 관리 서비스 : 글조명</MainContentTitle>
       <MainContentSubTitle>임직원들과 비전을 공유해보세요!</MainContentSubTitle>
       <MainContent>
+        <MainContentImg src={'/img/main/MainSection1Rect.png'}/>
+        <MainContentImg src={'/img/main/MainSection1Rect.png'}/>
+        <MainContentImg src={'/img/main/MainSection1Rect.png'}/>
       </MainContent>
     </MainContentContainer>
   );

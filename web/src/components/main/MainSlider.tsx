@@ -9,7 +9,7 @@ const MainBannerContainer = styled.div``;
 const MainBannerImage = styled.div`
   background-color: yellow;
   max-width: 71rem;
-  height: 45rem;
+  height: 25rem;
 `;
 
 const MainBanner: React.FC = () => {
