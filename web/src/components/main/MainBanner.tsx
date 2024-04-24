@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const MainBannerContainer = styled.div`
   width: 100%;
+  
 `;
 
 const MainBannerImage = styled.img``;

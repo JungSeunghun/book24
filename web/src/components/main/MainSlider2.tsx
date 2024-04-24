@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import {CH2, CH5} from "../../style/FontStyle";
+import SizedBox from "../common/SizedBox";
 
 const MainBannerContainer = styled.div`
   width: 100%;
@@ -31,8 +32,11 @@ const MainBanner2: React.FC = () => {
 
   return (
     <MainBannerContainer>
+      <SizedBox height={"1.5rem"}/>
       <MainContentTitle>기업 도서 관리 서비스 : 글조명</MainContentTitle>
+      <SizedBox height={"0.5rem"}/>
       <MainContentSubTitle>임직원들과 비전을 공유해보세요!</MainContentSubTitle>
+      <SizedBox height={"2.8125rem"}/>
       <Slider {...settings}>
         <MainBannerImage>
           Slide 1
@@ -44,6 +48,7 @@ const MainBanner2: React.FC = () => {
           Slide 3
         </MainBannerImage>
       </Slider>
+      <SizedBox height={"3.125rem"}/>
     </MainBannerContainer>
   );
 };
