@@ -10,10 +10,13 @@ const MainContentContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 2.5rem;
+  @media (max-width: 1080px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const MainContentCenterTitle = styled(CH2)`
-  width: 100%;
   text-align: center;
 `;
 
@@ -30,6 +33,10 @@ const MainContentTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media (max-width: 1080px) {
+    position: absolute;
+    z-index: 1;
+  }
 `;
 
 const MainContentSection3: React.FC = () => {
@@ -47,8 +54,8 @@ const MainContentSection3: React.FC = () => {
           <MainContentTitle>임직원들과 비전을 공유해보세요!</MainContentTitle>
           <MainContentSubTitle>내용 주절주절</MainContentSubTitle>
         </MainContentTitleContainer>
-        <SizedBox height={"3rem"}/>
       </MainContentContainer>
+      <SizedBox height={"3rem"}/>
     </>
   );
 };

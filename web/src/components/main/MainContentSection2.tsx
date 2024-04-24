@@ -13,9 +13,14 @@ const MainContentTitle = styled(CH5)``;
 
 const MainContentSubTitle = styled(CH2)``;
 
-const MainContent = styled.div``;
+const MainContent = styled.div`
+  width: 100%;
+  max-height: 20rem;
+`;
 
-const MainContentImg = styled.img``;
+const MainContentImg = styled.img`
+  width: 100%;
+`;
 
 const MainContentSection2: React.FC = () => {
 

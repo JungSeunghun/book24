@@ -10,6 +10,10 @@ const MainContentContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 2.5rem;
+  @media (max-width: 1080px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const MainContentTitle = styled(CH2)``;
@@ -25,22 +29,28 @@ const MainContentTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media (max-width: 1080px) {
+    position: absolute;
+    z-index: 1;
+  }
 `;
 
 const MainContentSection5: React.FC = () => {
 
   return (
-    <MainContentContainer>
+    <>
       <SizedBox height={"3rem"}/>
-      <MainContentImageContainer>
-        <MainContentImage src={"/img/main/MainSection4Rect.png"}/>
-      </MainContentImageContainer>
-      <MainContentTitleContainer>
-        <MainContentTitle>임직원들과 비전을 공유해보세요!</MainContentTitle>
-        <MainContentSubTitle>내용 주절주절</MainContentSubTitle>
-      </MainContentTitleContainer>
+      <MainContentContainer>
+        <MainContentImageContainer>
+          <MainContentImage src={"/img/main/MainSection4Rect.png"}/>
+        </MainContentImageContainer>
+        <MainContentTitleContainer>
+          <MainContentTitle>임직원들과 비전을 공유해보세요!</MainContentTitle>
+          <MainContentSubTitle>내용 주절주절</MainContentSubTitle>
+        </MainContentTitleContainer>
+      </MainContentContainer>
       <SizedBox height={"3rem"}/>
-    </MainContentContainer>
+    </>
   );
 };
 

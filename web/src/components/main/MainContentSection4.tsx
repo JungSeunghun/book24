@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-import {CB1, CH2} from "../../style/FontStyle";
+import { CB1, CH2 } from "../../style/FontStyle";
 import SizedBox from "../common/SizedBox";
-
 
 const MainContentContainer = styled.div`
   width: 100%;
@@ -10,6 +9,10 @@ const MainContentContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   gap: 2.5rem;
+  @media (max-width: 1080px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const MainContentTitle = styled(CH2)``;
@@ -25,22 +28,28 @@ const MainContentTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media (max-width: 1080px) {
+    position: absolute;
+    z-index: 1;
+  }
 `;
 
 const MainContentSection4: React.FC = () => {
 
   return (
-    <MainContentContainer>
+    <>
       <SizedBox height={"3rem"}/>
-      <MainContentTitleContainer>
-        <MainContentTitle>임직원들과 비전을 공유해보세요!</MainContentTitle>
-        <MainContentSubTitle>내용 주절주절</MainContentSubTitle>
-      </MainContentTitleContainer>
-      <MainContentImageContainer>
-        <MainContentImage src={"/img/main/MainSection4Rect.png"}/>
-      </MainContentImageContainer>
+      <MainContentContainer>
+        <MainContentTitleContainer>
+          <MainContentTitle>임직원들과 비전을 공유해보세요!</MainContentTitle>
+          <MainContentSubTitle>내용 주절주절</MainContentSubTitle>
+        </MainContentTitleContainer>
+        <MainContentImageContainer>
+          <MainContentImage src={"/img/main/MainSection4Rect.png"}/>
+        </MainContentImageContainer>
+      </MainContentContainer>
       <SizedBox height={"3rem"}/>
-    </MainContentContainer>
+    </>
   );
 };
 

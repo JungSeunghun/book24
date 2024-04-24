@@ -1,57 +1,50 @@
 import React from 'react';
-import styled from "@emotion/styled"
+import styled from "styled-components";
 import {B1_600, B2_400} from "../style/FontStyle";
+import SizedBox from "./common/SizedBox";
 
-const Base = styled.footer`
-  display: block;
-  background-color: #ffffff;
-  width: 100%;
-`;
-
-const Section = styled.section`
+const FooterContainer = styled.footer`
   margin: 0 auto;
-  max-width: 1136px;
-  height: 172px;
-  background-color: #FFB443;
+  max-width: 71rem;
+  height: 10.75rem;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.black};
 `;
 
 const Container = styled.section`
   text-align: right;
-  padding: 16px 40px;
+  padding: 1rem 2.5rem;
 `;
 
-const FooterTitle = styled(B1_600)`
-`;
+const FooterTitle = styled(B1_600)``;
 
-const FooterText = styled(B2_400)`
-`;
+const FooterText = styled(B2_400)``;
 
-const FooterIcon = styled.div`
-  margin: 16px 0;
-`;
+const FooterIcon = styled.div``;
+
 const Link = styled.a`
-  color: #000000;
+  color: ${({ theme }) => theme.colors.black};
 `;
 
 const Footer: React.FC = () => {
   return (
-    <Base>
-      <Section>
-        <Container>
-          <FooterTitle>글조명</FooterTitle>
-          <FooterText>제작: 권오현 / 심화영 / 정승훈</FooterText>
-          <Link href={'https://www.instagram.com/writing.lighting?igsh=c2RmM3V6eHpuNGc2&utm_source=qr'}
-                target={'_blank'}>
-            <FooterIcon>
-              <img src={'/icons/instagram.svg'}/>
-            </FooterIcon>
-          </Link>
-          <Link>
-            <FooterText>개인정보처리방침</FooterText>
-          </Link>
-        </Container>
-      </Section>
-    </Base>
+    <FooterContainer>
+      <Container>
+        <FooterTitle>글조명</FooterTitle>
+        <FooterText>제작: 권오현 / 심화영 / 정승훈</FooterText>
+        <SizedBox height={"1rem"}/>
+        <Link href={'https://www.instagram.com/writing.lighting?igsh=c2RmM3V6eHpuNGc2&utm_source=qr'}
+              target={'_blank'}>
+          <FooterIcon>
+            <img src={'/icons/instagram.svg'}/>
+          </FooterIcon>
+        </Link>
+        <SizedBox height={"1rem"}/>
+        <Link>
+          <FooterText>개인정보처리방침</FooterText>
+        </Link>
+      </Container>
+    </FooterContainer>
   )
 }
 

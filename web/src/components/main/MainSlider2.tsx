@@ -9,12 +9,17 @@ import SizedBox from "../common/SizedBox";
 const MainBannerContainer = styled.div`
   width: 100%;
   text-align: center;
+  overflow: hidden;
 `;
 
-const MainBannerImage = styled.div`
-  background-color: yellow;
-  max-width: 71rem;
-  height: 25rem;
+const MainBannerImageContainer = styled.div`
+  width: 80%;
+  padding-right: 10%;
+  box-sizing: border-box;
+`;
+
+const MainBannerImage = styled.img`
+  width: 100%
 `;
 
 const MainContentTitle = styled(CH5)``;
@@ -25,9 +30,12 @@ const MainBanner2: React.FC = () => {
 
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
-    arrows: false
+    arrows: false,
+    centerMode: true,
+    centerPadding: '0',
+    slidesToShow: 1.1
   }
 
   return (
@@ -38,15 +46,18 @@ const MainBanner2: React.FC = () => {
       <MainContentSubTitle>임직원들과 비전을 공유해보세요!</MainContentSubTitle>
       <SizedBox height={"2.8125rem"}/>
       <Slider {...settings}>
-        <MainBannerImage>
-          Slide 1
-        </MainBannerImage>
-        <MainBannerImage>
-          Slide 2
-        </MainBannerImage>
-        <MainBannerImage>
-          Slide 3
-        </MainBannerImage>
+        <MainBannerImageContainer style={{ width: "80" }}>
+          <MainBannerImage src={"/img/main/MainSliderImage2.png"}/>
+        </MainBannerImageContainer>
+        <MainBannerImageContainer>
+          <MainBannerImage src={"/img/main/MainSliderImage2.png"}/>
+        </MainBannerImageContainer>
+        <MainBannerImageContainer>
+          <MainBannerImage src={"/img/main/MainSliderImage2.png"}/>
+        </MainBannerImageContainer>
+        <MainBannerImageContainer>
+          <MainBannerImage src={"/img/main/MainSliderImage2.png"}/>
+        </MainBannerImageContainer>
       </Slider>
       <SizedBox height={"3.125rem"}/>
     </MainBannerContainer>

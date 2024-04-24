@@ -16,10 +16,17 @@ const MainContentSubTitle = styled(CH2)``;
 const MainContent = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2.25rem;
+  @media (max-width: 1080px) {
+    flex-direction: column;
+  }
 `;
 
-const MainContentImg = styled.img``;
+const MainContentImg = styled.img`
+  max-width: 20rem;
+  max-height: 20rem;
+`;
 
 const MainContentSection1: React.FC = () => {
 

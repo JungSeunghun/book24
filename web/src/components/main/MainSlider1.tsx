@@ -4,19 +4,24 @@ import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const MainBannerContainer = styled.div``;
-
-const MainBannerImage = styled.div`
-  background-color: yellow;
+const MainBannerContainer = styled.div`
   max-width: 71rem;
-  height: 25rem;
+  max-height: 25rem;
+`;
+
+const MainBannerImageContainer = styled.div`
+  width: 100%;
+`;
+
+const MainBannerImage = styled.img`
+  width: 100%
 `;
 
 const MainSlider1: React.FC = () => {
 
   const settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     arrows: false
   }
@@ -24,15 +29,18 @@ const MainSlider1: React.FC = () => {
   return (
     <MainBannerContainer>
       <Slider {...settings}>
-        <MainBannerImage>
-          Slide 1
-        </MainBannerImage>
-        <MainBannerImage>
-          Slide 2
-        </MainBannerImage>
-        <MainBannerImage>
-          Slide 3
-        </MainBannerImage>
+        <MainBannerImageContainer>
+          <MainBannerImage src={'/img/main/MainSliderImage.png'}/>
+        </MainBannerImageContainer>
+        <MainBannerImageContainer>
+          <MainBannerImage src={'/img/main/MainSliderImage.png'}/>
+        </MainBannerImageContainer>
+        <MainBannerImageContainer>
+          <MainBannerImage src={'/img/main/MainSliderImage.png'}/>
+        </MainBannerImageContainer>
+        <MainBannerImageContainer>
+          <MainBannerImage src={'/img/main/MainSliderImage.png'}/>
+        </MainBannerImageContainer>
       </Slider>
     </MainBannerContainer>
   );
