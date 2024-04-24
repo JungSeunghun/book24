@@ -1,4 +1,4 @@
-package com.textlaamp.libraryserver.util
+package com.textlamp.libraryserver.util
 
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.SerializationFeature
@@ -6,9 +6,9 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 
 
-class ConverterUtil {
+class JsonUtils {
     companion object {
-        fun convert(xmlData: String): String {
+        fun xmlToJson(xmlData: String): String {
             val xmlMapper = XmlMapper()
             xmlMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
 

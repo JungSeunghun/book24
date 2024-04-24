@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import {CH2, CH5, H2_400} from "../../style/FontStyle";
 import SizedBox from "../common/SizedBox";
+import Book from "../../pages/Book";
 
 
 const MainContentContainer = styled.div`
@@ -45,11 +46,63 @@ const MainContent = styled.div`
   }
 `;
 
-const MainContentImgContainer = styled.div``;
+const MainContentImgContainer = styled.div`
+  width: 14.625rem;
+  height: 20rem;
+`;
 
-const MainContentImg = styled.img``;
+const MainContentImg = styled.img`
+  object-fit: contain;
+`;
+
+interface Book {
+  no: string;
+  ranking: string;
+  bookname: string;
+  authors: string;
+  publisher: string;
+  publication_year: string;
+  isbn13: string;
+  addition_symbol: string;
+  vol: string;
+  class_no: string;
+  class_nm: string;
+  loan_count: string;
+  bookImageURL: string;
+  bookDtlUrl: string;
+}
+
+interface ApiResponse {
+  request: {
+    startDt: string;
+    endDt: string;
+    pageNo: string;
+    pageSize: string;
+  };
+  resultNum: string;
+  numFound: string;
+  docs: {
+    doc: Book[];
+  };
+}
 
 const MainBookGrid1: React.FC = () => {
+
+  const [books, setBooks] = useState<Book[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/v1/library/recent');
+        const json: ApiResponse = await response.json();
+        setBooks(json.docs.doc);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <MainContentContainer>
@@ -67,14 +120,11 @@ const MainBookGrid1: React.FC = () => {
       </MainContentHeaderContainer>
       <SizedBox height={"1.25rem"}/>
       <MainContent>
-        <MainContentImgContainer>
-          <MainContentImg src={'/img/common/BookImage.png'}/>
-        </MainContentImgContainer>
-        <MainContentImgContainer>
-          <MainContentImg src={'/img/common/BookImage.png'}/>
-        </MainContentImgContainer>
-        <MainContentImg src={'/img/common/BookImage.png'}/>
-        <MainContentImg src={'/img/common/BookImage.png'}/>
+        {books.map((book) => (
+          <MainContentImgContainer key={book.isbn13}>
+            <MainContentImg src={book.bookImageURL} alt={`${book.bookname}`} />
+          </MainContentImgContainer>
+        ))}
       </MainContent>
     </MainContentContainer>
   );

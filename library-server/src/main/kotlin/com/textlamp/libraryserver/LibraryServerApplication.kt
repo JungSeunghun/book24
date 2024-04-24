@@ -1,4 +1,4 @@
-package com.textlaamp.libraryserver
+package com.textlamp.libraryserver
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
