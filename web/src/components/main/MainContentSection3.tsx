@@ -35,19 +35,21 @@ const MainContentTitleContainer = styled.div`
 const MainContentSection3: React.FC = () => {
 
   return (
-    <MainContentContainer>
+    <>
       <SizedBox height={"3rem"}/>
       <MainContentCenterTitle>임직원들과 비전을 공유해보세요!</MainContentCenterTitle>
       <SizedBox height={"2.75rem"}/>
-      <MainContentImageContainer>
-        <MainContentImage src={"/img/main/MainSection4Rect.png"}/>
-      </MainContentImageContainer>
-      <MainContentTitleContainer>
-        <MainContentTitle>임직원들과 비전을 공유해보세요!</MainContentTitle>
-        <MainContentSubTitle>내용 주절주절</MainContentSubTitle>
-      </MainContentTitleContainer>
-      <SizedBox height={"3.125rem"}/>
-    </MainContentContainer>
+      <MainContentContainer>
+        <MainContentImageContainer>
+          <MainContentImage src={"/img/main/MainSection4Rect.png"}/>
+        </MainContentImageContainer>
+        <MainContentTitleContainer>
+          <MainContentTitle>임직원들과 비전을 공유해보세요!</MainContentTitle>
+          <MainContentSubTitle>내용 주절주절</MainContentSubTitle>
+        </MainContentTitleContainer>
+        <SizedBox height={"3rem"}/>
+      </MainContentContainer>
+    </>
   );
 };
 
