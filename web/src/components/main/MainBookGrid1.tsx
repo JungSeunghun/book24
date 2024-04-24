@@ -21,7 +21,6 @@ const MainContentTitleContainer = styled.div`
   margin: 0 2rem;
   background-color: ${({ theme }) => theme.colors.primary};
   border: 1px solid ${({ theme }) => theme.colors.black};
-  
 `;
 
 const MainContentTitleText = styled(H2_400)`
@@ -46,6 +45,8 @@ const MainContent = styled.div`
   }
 `;
 
+const MainContentImgContainer = styled.div``;
+
 const MainContentImg = styled.img``;
 
 const MainBookGrid1: React.FC = () => {
@@ -66,8 +67,12 @@ const MainBookGrid1: React.FC = () => {
       </MainContentHeaderContainer>
       <SizedBox height={"1.25rem"}/>
       <MainContent>
-        <MainContentImg src={'/img/common/BookImage.png'}/>
-        <MainContentImg src={'/img/common/BookImage.png'}/>
+        <MainContentImgContainer>
+          <MainContentImg src={'/img/common/BookImage.png'}/>
+        </MainContentImgContainer>
+        <MainContentImgContainer>
+          <MainContentImg src={'/img/common/BookImage.png'}/>
+        </MainContentImgContainer>
         <MainContentImg src={'/img/common/BookImage.png'}/>
         <MainContentImg src={'/img/common/BookImage.png'}/>
       </MainContent>
