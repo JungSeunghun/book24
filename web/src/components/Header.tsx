@@ -1,26 +1,20 @@
-import React, {useEffect, useState} from 'react';
-import styled from "@emotion/styled"
-import {AiOutlineMenu, AiOutlineClose, AiOutlineSearch} from 'react-icons/ai';
-import {B1_600} from "../style/Style";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
+import { B1_600 } from "../style/FontStyle";
 
-const Base = styled.header`
-  background: #ffffff;
-  text-align: center;
-  width: 100%;
-  height: 3.75rem;
-`;
-
-const Navigation = styled.nav`
+const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
   max-width: 71rem;
+  height: 3.75rem;
 `;
 
 const Logo = styled.img`
-  width: 80px;
-  height: 60px;
+  width: 5rem;
+  height: 3.75rem;
 `;
 
 const MenuList = styled.ul`
@@ -29,76 +23,63 @@ const MenuList = styled.ul`
   margin: 0;
   display: flex;
   overflow: hidden;
+  gap: 1.25rem;
 `;
 
 const Menu = styled.li`
-  display: flex;
-  align-items: center;
-  height: 60px;
-  flex-shrink: 0;
-  padding: 0 10px;
+  text-align: center;
+  align-content: center;
+  min-width: 5rem;
+  height: 3.75rem;
 `;
 
-const MenuButton = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 40px;
-  border-radius: 20px;
-  background-color: #FFB443;
-  cursor: pointer;
-`;
-
-const Link = styled.a`
+const StyledLink = styled(NavLink)`
   text-decoration: none;
   color: black;
+
+  &.active {
+    color: ${({ theme }) => theme.colors.primary};
+  }
 `;
 
-const HomeLink = styled.a`
-  text-decoration: none;
-  color: #FFB443
+const LinkText = styled(B1_600)``;
+
+const StyledLinkText = styled(LinkText)`
+  border-radius: 1.25rem;
+  background-color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme }) => theme.colors.white};
+  padding: 0.5rem 1.65rem;
 `;
 
 const MainHeader = () => {
-
-  const handleSubscribeClick = () => {
-    alert('준비 중입니다.');
-  };
-
   return (
-    <Base>
-      <Navigation>
-        <Link href="/">
-          <Logo src={'logo/header_logo.svg'}/>
-        </Link>
-        <MenuList>
-          <Menu>
-            <HomeLink href="/">
-              <B1_600>
-                홈
-              </B1_600>
-            </HomeLink>
-          </Menu>
-          <Menu>
-            <HomeLink href="/book">
-              <B1_600>
-                도서
-              </B1_600>
-            </HomeLink>
-          </Menu>
-          <Menu>
-            <Link>
-              <MenuButton onClick={handleSubscribeClick}>
-                <B1_600>
-                  무료상담
-                </B1_600>
-              </MenuButton>
-            </Link>
-          </Menu>
-        </MenuList>
-      </Navigation>
-    </Base>
+    <Header>
+      <StyledLink to="/">
+        <Logo src={'logo/header_logo.svg'} />
+      </StyledLink>
+      <MenuList>
+        <Menu>
+          <StyledLink to="/" className={({ isActive }) => (isActive ? 'active' : undefined)}>
+            <LinkText>홈</LinkText>
+          </StyledLink>
+        </Menu>
+        <Menu>
+          <StyledLink to="/book" className={({ isActive }) => (isActive ? 'active' : undefined)}>
+            <LinkText>도서</LinkText>
+          </StyledLink>
+        </Menu>
+        <Menu>
+          <StyledLink to="/basket" className={({ isActive }) => (isActive ? 'active' : undefined)}>
+            <LinkText>장바구니</LinkText>
+          </StyledLink>
+        </Menu>
+        <Menu>
+          <StyledLink to="/consult" className={({ isActive }) => (isActive ? 'active' : undefined)}>
+            <StyledLinkText>무료상담</StyledLinkText>
+          </StyledLink>
+        </Menu>
+      </MenuList>
+    </Header>
   );
 };
 

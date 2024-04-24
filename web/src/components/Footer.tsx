@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "@emotion/styled"
-import {B1_600, B2_400} from "../style/Style";
+import {B1_600, B2_400} from "../style/FontStyle";
 
 const Base = styled.footer`
   display: block;

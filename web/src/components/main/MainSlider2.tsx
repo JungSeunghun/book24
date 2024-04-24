@@ -3,8 +3,12 @@ import styled from "styled-components";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import {CH2, CH5} from "../../style/FontStyle";
 
-const MainBannerContainer = styled.div``;
+const MainBannerContainer = styled.div`
+  width: 100%;
+  text-align: center;
+`;
 
 const MainBannerImage = styled.div`
   background-color: yellow;
@@ -12,7 +16,11 @@ const MainBannerImage = styled.div`
   height: 25rem;
 `;
 
-const MainBanner: React.FC = () => {
+const MainContentTitle = styled(CH5)``;
+
+const MainContentSubTitle = styled(CH2)``;
+
+const MainBanner2: React.FC = () => {
 
   const settings = {
     dots: false,
@@ -23,6 +31,8 @@ const MainBanner: React.FC = () => {
 
   return (
     <MainBannerContainer>
+      <MainContentTitle>기업 도서 관리 서비스 : 글조명</MainContentTitle>
+      <MainContentSubTitle>임직원들과 비전을 공유해보세요!</MainContentSubTitle>
       <Slider {...settings}>
         <MainBannerImage>
           Slide 1
@@ -38,4 +48,4 @@ const MainBanner: React.FC = () => {
   );
 };
 
-export default MainBanner;
+export default MainBanner2;

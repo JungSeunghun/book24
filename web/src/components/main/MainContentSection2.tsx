@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import {CH2, CH5} from "../../style/Style";
+import {CH2, CH5} from "../../style/FontStyle";
 
 
 const MainContentContainer = styled.div`
