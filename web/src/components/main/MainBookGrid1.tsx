@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import {CH2, CH5, H2_400} from "../../style/FontStyle";
+import SizedBox from "../common/SizedBox";
 
 
 const MainContentContainer = styled.div`
@@ -14,22 +15,22 @@ const MainContentHeaderContainer = styled.div`
   align-items: center;
 `;
 
-const MainContentTitle = styled(H2_400)`
-  display: inline-flex;
-  padding: 0.3125rem 0.625rem;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 0.625rem;
+const MainContentTitleContainer = styled.div`
   border-radius: 1.25rem;
+  padding: 0.44rem 1rem;
+  margin: 0 2rem;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border: 1px solid ${({ theme }) => theme.colors.black};
   
-  background-color: #FFB443;
-  border: 1px solid #3A3A3A;
-  color: white;
+`;
+
+const MainContentTitleText = styled(H2_400)`
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 const MainContentLink = styled.a`
   cursor: pointer;
+  margin: 0 2rem;
 `;
 
 const MainContentLinkText = styled(H2_400)``;
@@ -38,6 +39,11 @@ const MainContent = styled.div`
   display: flex;
   justify-content: center;
   gap: 2rem;
+  padding: 3.75rem 2.5rem;
+  @media (max-width: 1080px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const MainContentImg = styled.img``;
@@ -47,13 +53,18 @@ const MainBookGrid1: React.FC = () => {
   return (
     <MainContentContainer>
       <MainContentHeaderContainer>
-        <MainContentTitle>요즘 뜨는 추천 신간!</MainContentTitle>
+        <MainContentTitleContainer>
+          <MainContentTitleText>
+            요즘 뜨는 추천 신간!
+          </MainContentTitleText>
+        </MainContentTitleContainer>
         <MainContentLink>
           <MainContentLinkText>
             전체보기
           </MainContentLinkText>
         </MainContentLink>
       </MainContentHeaderContainer>
+      <SizedBox height={"1.25rem"}/>
       <MainContent>
         <MainContentImg src={'/img/common/BookImage.png'}/>
         <MainContentImg src={'/img/common/BookImage.png'}/>
