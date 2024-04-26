@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { B1_600 } from "../style/FontStyle";
@@ -24,6 +24,44 @@ const MenuList = styled.ul`
   display: flex;
   overflow: hidden;
   gap: 1.25rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const MobileMenuIcon = styled.div`
+  display: none;
+  width: 2rem;
+  height: 2rem;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+
+  div {
+    width: 100%;
+    height: 0.25rem;
+    background-color: black;
+  }
+`;
+
+const MobileMenuList = styled(MenuList)`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 3.75rem;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  }
 `;
 
 const Menu = styled.li`
@@ -52,6 +90,12 @@ const StyledLinkText = styled(LinkText)`
 `;
 
 const MainHeader = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
     <Header>
       <StyledLink to="/">
@@ -63,22 +107,51 @@ const MainHeader = () => {
             <LinkText>홈</LinkText>
           </StyledLink>
         </Menu>
-        <Menu>
-          <StyledLink to="/book" className={({ isActive }) => (isActive ? 'active' : undefined)}>
-            <LinkText>도서</LinkText>
-          </StyledLink>
-        </Menu>
-        <Menu>
-          <StyledLink to="/basket" className={({ isActive }) => (isActive ? 'active' : undefined)}>
-            <LinkText>장바구니</LinkText>
-          </StyledLink>
-        </Menu>
+        {/*<Menu>*/}
+        {/*  <StyledLink to="/book" className={({ isActive }) => (isActive ? 'active' : undefined)}>*/}
+        {/*    <LinkText>도서</LinkText>*/}
+        {/*  </StyledLink>*/}
+        {/*</Menu>*/}
+        {/*<Menu>*/}
+        {/*  <StyledLink to="/basket" className={({ isActive }) => (isActive ? 'active' : undefined)}>*/}
+        {/*    <LinkText>장바구니</LinkText>*/}
+        {/*  </StyledLink>*/}
+        {/*</Menu>*/}
         <Menu>
           <StyledLink to="/consult" className={({ isActive }) => (isActive ? 'active' : undefined)}>
             <StyledLinkText>무료상담</StyledLinkText>
           </StyledLink>
         </Menu>
       </MenuList>
+      <MobileMenuIcon onClick={toggleMobileMenu}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </MobileMenuIcon>
+      {mobileMenuOpen && (
+        <MobileMenuList>
+          <Menu>
+            <StyledLink to="/" className={({ isActive }) => (isActive ? 'active' : undefined)}>
+              <LinkText>홈</LinkText>
+            </StyledLink>
+          </Menu>
+          {/*<Menu>*/}
+          {/*  <StyledLink to="/book" className={({ isActive }) => (isActive ? 'active' : undefined)}>*/}
+          {/*    <LinkText>도서</LinkText>*/}
+          {/*  </StyledLink>*/}
+          {/*</Menu>*/}
+          {/*<Menu>*/}
+          {/*  <StyledLink to="/basket" className={({ isActive }) => (isActive ? 'active' : undefined)}>*/}
+          {/*    <LinkText>장바구니</LinkText>*/}
+          {/*  </StyledLink>*/}
+          {/*</Menu>*/}
+          <Menu>
+            <StyledLink to="/consult" className={({ isActive }) => (isActive ? 'active' : undefined)}>
+              <StyledLinkText>무료상담</StyledLinkText>
+            </StyledLink>
+          </Menu>
+        </MobileMenuList>
+      )}
     </Header>
   );
 };
