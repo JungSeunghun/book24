@@ -70,10 +70,11 @@ const RankCircle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
 `;
 
 const RankCircleNumber = styled(B1_600)`
+  font-weight: bold;
   color: ${({ theme }) => theme.colors.white};
 `;
 
