@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/v1/library")
+@RequestMapping("/api/v1/library")
 class LibraryController(
     private val libraryService: LibraryService
 ) {
@@ -19,5 +19,18 @@ class LibraryController(
     ): String = mono {
         libraryService.getRecentBooks(pageSize)
     }.awaitSingle()
+
+    @GetMapping("/trending")
+    suspend fun trending(): String = mono {
+        libraryService.getTrendingBooks()
+    }.awaitSingle()
+
+    @GetMapping("/detail")
+    suspend fun detail(
+        @RequestParam isbn13: String
+    ) : String = mono {
+        libraryService.getBookDetail(isbn13)
+    }.awaitSingle()
+
 }
 

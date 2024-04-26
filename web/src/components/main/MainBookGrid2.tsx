@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import {CH2, CH5, H2_400} from "../../style/FontStyle";
 import SizedBox from "../common/SizedBox";
@@ -46,9 +46,70 @@ const MainContent = styled.div`
   }
 `;
 
-const MainContentImg = styled.img``;
+const MainContentImgContainer = styled.div`
+  width: 14.625rem;
+  height: 20rem;
+`;
 
-const MainBookGrid1: React.FC = () => {
+const MainContentImg = styled.img`
+  object-fit: contain;
+  width: 100%;
+`;
+
+interface Book {
+  no: string;                 // 순번
+  difference: string;         // 대출순위 상승폭
+  baseWeekRank: string;       // 기준일 순위
+  pastWeekRank: string;       // 전주 순위
+  bookname: string;           // 도서명
+  authors: string;            // 저자명
+  publisher: string;          // 출판사
+  publication_year: string;   // 출판년도
+  isbn13: string;             // 13 자리 ISBN
+  addition_symbol: string;    // ISBN 부가기호
+  vol: string;                // 권
+  class_no: string;           // 주제분류
+  class_nm: string;           // 주제분류명
+  bookImageURL: string;       // 책표지 URL
+  bookDtlUrl: string;         // 도서 상세 페이지 URL
+}
+
+interface ApiResponse {
+  response: {
+    request: {
+      searchDt: string;
+    };
+    results: {
+      result: {
+        date: string;
+        docs: {
+          doc: Book[];
+        }[];
+      }[];
+    }
+  };
+}
+
+const MainBookGrid2: React.FC = () => {
+
+  const [books, setBooks] = useState<Book[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/api/v1/library/trending');
+        const json: ApiResponse = await response.json();
+        if (json.response.results.result.length > 0) {
+          const latestBooks = json.response.results.result[0].docs.flatMap(doc => doc.doc).slice(0, 4);
+          setBooks(latestBooks);
+        }
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <MainContentContainer>
@@ -66,13 +127,14 @@ const MainBookGrid1: React.FC = () => {
       </MainContentHeaderContainer>
       <SizedBox height={"1.25rem"}/>
       <MainContent>
-        <MainContentImg src={'/img/common/BookImage.png'}/>
-        <MainContentImg src={'/img/common/BookImage.png'}/>
-        <MainContentImg src={'/img/common/BookImage.png'}/>
-        <MainContentImg src={'/img/common/BookImage.png'}/>
+        {books.map((book) => (
+          <MainContentImgContainer key={book.isbn13}>
+            <MainContentImg src={book.bookImageURL} alt={`${book.bookname}`} />
+          </MainContentImgContainer>
+        ))}
       </MainContent>
     </MainContentContainer>
   );
 };
 
-export default MainBookGrid1;
+export default MainBookGrid2;

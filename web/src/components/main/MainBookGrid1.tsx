@@ -53,36 +53,39 @@ const MainContentImgContainer = styled.div`
 
 const MainContentImg = styled.img`
   object-fit: contain;
+  width: 100%;
 `;
 
 interface Book {
-  no: string;
-  ranking: string;
-  bookname: string;
-  authors: string;
-  publisher: string;
-  publication_year: string;
-  isbn13: string;
-  addition_symbol: string;
-  vol: string;
-  class_no: string;
-  class_nm: string;
-  loan_count: string;
-  bookImageURL: string;
-  bookDtlUrl: string;
+  no: string;                 // 순번
+  ranking: string;            // 순위
+  bookname: string;           // 도서명
+  authors: string;            // 저자명
+  publisher: string;          // 출판사
+  publication_year: string;   // 출판년도
+  isbn13: string;             // 13 자리 ISBN
+  addition_symbol: string;    // ISBN 부가기호
+  vol: string;                // 권
+  class_no: string;           // 주제분류
+  class_nm: string;           // 주제분류명
+  loan_count: string;         // 대출건수
+  bookImageURL: string;       // 책표지 URL
+  bookDtlUrl: string;         // 도서 상세 페이지 URL
 }
 
 interface ApiResponse {
-  request: {
-    startDt: string;
-    endDt: string;
-    pageNo: string;
-    pageSize: string;
-  };
-  resultNum: string;
-  numFound: string;
-  docs: {
-    doc: Book[];
+  response: {
+    request: {
+      startDt: string;
+      endDt: string;
+      pageNo: number;
+      pageSize: number;
+    };
+    resultNum: number;
+    numFound: number;
+    docs: {
+      doc: Book[];
+    }[];
   };
 }
 
@@ -93,9 +96,10 @@ const MainBookGrid1: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:8080/v1/library/recent');
+        const response = await fetch('http://localhost:8080/api/v1/library/recent');
         const json: ApiResponse = await response.json();
-        setBooks(json.docs.doc);
+        const allBooks = json.response.docs.flatMap(doc => doc.doc);
+        setBooks(allBooks);
       } catch (error) {
         console.error('Error fetching data: ', error);
       }

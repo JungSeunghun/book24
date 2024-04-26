@@ -13,7 +13,12 @@ class CorsConfig {
     @Bean
     fun corsFilter(): CorsWebFilter {
         val config = CorsConfiguration().apply {
-            setAllowedOrigins(listOf("http://localhost:3000"))
+            setAllowedOrigins(
+                listOf(
+                    "http://localhost:3000",
+                    "http://127.0.0.1:3000"
+                )
+            )
             addAllowedMethod("*")
             addAllowedHeader("*")
             allowCredentials = true
