@@ -13,10 +13,33 @@ import MainSlider2 from "../components/main/MainSlider2";
 import MainBookGrid1 from "../components/main/MainBookGrid1";
 import MainBookGrid2 from "../components/main/MainBookGrid2";
 import SizedBox from "../components/common/SizedBox";
+import {CB1} from "../style/FontStyle";
 
 const Main = styled.main`
   max-width: 71rem;
   margin: 0 auto;
+`;
+
+const BookRequestButton = styled.button`
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  width: 30rem;
+  height: 3.5rem;
+  padding: 1rem 0rem;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.primary};
+  border: none;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  cursor: pointer;
+`;
+
+const BookRequestButtonText = styled(CB1)`
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 const MainPage: React.FC = () => {
@@ -24,6 +47,11 @@ const MainPage: React.FC = () => {
   return (
     <div>
       <Header/>
+      <BookRequestButton>
+        <BookRequestButtonText>
+          도서 신청하기
+        </BookRequestButtonText>
+      </BookRequestButton>
       <Main>
         <MainBanner />
         <SizedBox height={"1.25rem"} />

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
-import {CH2, CH5, H2_400} from "../../style/FontStyle";
+import {B1_600, CH2, CH5, H2_400} from "../../style/FontStyle";
 import SizedBox from "../common/SizedBox";
 
 
@@ -49,11 +49,32 @@ const MainContent = styled.div`
 const MainContentImgContainer = styled.div`
   width: 14.625rem;
   height: 20rem;
+  position: relative;
 `;
 
 const MainContentImg = styled.img`
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
+  height: 100%;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+`;
+
+const RankCircle = styled.div`
+  position: absolute;
+  top: -1.5rem;
+  left: -1.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.primary};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+`;
+
+const RankCircleNumber = styled(B1_600)`
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 interface Book {
@@ -130,8 +151,13 @@ const MainBookGrid2: React.FC = () => {
       </MainContentHeaderContainer>
       <SizedBox height={"1.25rem"}/>
       <MainContent>
-        {books.map((book) => (
+        {books.map((book, index) => (
           <MainContentImgContainer key={book.isbn13}>
+            {index < 3 && (
+              <RankCircle>
+                <RankCircleNumber>{index + 1}</RankCircleNumber>
+              </RankCircle>
+            )}
             <MainContentImg src={book.bookImageURL} alt={`${book.bookname}`} />
           </MainContentImgContainer>
         ))}
