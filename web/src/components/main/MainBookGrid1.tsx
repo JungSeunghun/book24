@@ -117,9 +117,9 @@ const MainBookGrid1: React.FC = () => {
           </MainContentTitleText>
         </MainContentTitleContainer>
         <MainContentLink>
-          <MainContentLinkText>
-            전체보기
-          </MainContentLinkText>
+          {/*<MainContentLinkText>*/}
+          {/*  전체보기*/}
+          {/*</MainContentLinkText>*/}
         </MainContentLink>
       </MainContentHeaderContainer>
       <SizedBox height={"1.25rem"}/>

@@ -83,10 +83,10 @@ interface ApiResponse {
       result: {
         date: string;
         docs: {
-          doc: Book[];
-        }[];
-      }[];
-    }
+          doc: Book;
+        }[]
+      }
+    }[];
   };
 }
 
@@ -99,9 +99,12 @@ const MainBookGrid2: React.FC = () => {
       try {
         const response = await fetch('http://localhost:8080/api/v1/library/trending');
         const json: ApiResponse = await response.json();
-        if (json.response.results.result.length > 0) {
-          const latestBooks = json.response.results.result[0].docs.flatMap(doc => doc.doc).slice(0, 4);
+
+        if (json.response.results.length > 0 && json.response.results[0].result.docs.length > 0) {
+          const latestBooks = json.response.results[0].result.docs.map(doc => doc.doc).slice(0, 4);
           setBooks(latestBooks);
+        } else {
+          console.error('No results found');
         }
       } catch (error) {
         console.error('Error fetching data: ', error);
@@ -120,9 +123,9 @@ const MainBookGrid2: React.FC = () => {
           </MainContentTitleText>
         </MainContentTitleContainer>
         <MainContentLink>
-          <MainContentLinkText>
-            전체보기
-          </MainContentLinkText>
+          {/*<MainContentLinkText>*/}
+          {/*  전체보기*/}
+          {/*</MainContentLinkText>*/}
         </MainContentLink>
       </MainContentHeaderContainer>
       <SizedBox height={"1.25rem"}/>
